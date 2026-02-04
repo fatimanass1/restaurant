@@ -2,11 +2,14 @@
 
 Crust & Bite is a modern **dark-themed burger restaurant website** built as a front-end practice project using **React, Vite, TypeScript, and Tailwind CSS**.
 
+## Live Demo
+[View App on Netlify](https://burger-restaurant-web.netlify.app/)
+
  **Project Status:**  
 This project is **not completed yet**.  
 Currently, it includes **only the Home Page** design and layout.
 
----
+
 
 ##  What's Included So Far
 
