@@ -1,5 +1,4 @@
 import BurgerMenu from "../components/BurgerMenu";
-import Footer from "../components/Footer";
 import Hero from "../components/Hero";
 import MenuIntro from "../components/MenuIntro";
 import PopularBurgers from "../components/PopularBurgers";
@@ -13,7 +12,6 @@ const Home = () => {
       <PopularBurgers />
       <WhyChooseUs />
       <BurgerMenu />
-      <Footer />
     </>
   );
 };
