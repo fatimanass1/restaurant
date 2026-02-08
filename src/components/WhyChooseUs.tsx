@@ -1,4 +1,5 @@
 import { Leaf, Star, Truck } from "lucide-react";
+import useScrollReveal from "../hooks/useScrollReveal";
 
 const features = [
   {
@@ -19,10 +20,17 @@ const features = [
 ];
 
 const WhyChooseUs = () => {
+  const { ref, isVisible } = useScrollReveal();
+
   return (
     <section className="bg-black text-white py-24">
-      <div className="max-w-7xl mx-auto px-6 text-center">
-
+      <div
+        ref={ref}
+        className={`max-w-7xl mx-auto px-6 text-center
+          transition-all duration-700 ease-out
+          ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-12"}
+        `}
+      >
         {/* Title */}
         <h2 className="text-3xl md:text-4xl font-bold mb-4">
           Why <span className="text-orange-400">Choose Us?</span>
@@ -36,16 +44,21 @@ const WhyChooseUs = () => {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
           {features.map((item, index) => {
             const Icon = item.icon;
+
             return (
               <div
                 key={index}
-                className="bg-zinc-900 rounded-2xl p-8
-                           hover:-translate-y-2 hover:shadow-orange-500/20
-                           transition"
+                style={{ transitionDelay: `${index * 150}ms` }}
+                className={`bg-zinc-900 rounded-2xl p-8
+                  transform transition-all duration-700
+                  hover:-translate-y-3 hover:shadow-orange-500/30 hover:shadow-xl
+                  ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-12"}
+                `}
               >
                 {/* Icon */}
                 <div className="w-16 h-16 mx-auto mb-6 flex items-center justify-center
-                                rounded-full bg-orange-500/10 text-orange-400">
+                                rounded-full bg-orange-500/10 text-orange-400
+                                transition-transform duration-300 group-hover:scale-110">
                   <Icon size={32} />
                 </div>
 
@@ -62,7 +75,6 @@ const WhyChooseUs = () => {
             );
           })}
         </div>
-
       </div>
     </section>
   );

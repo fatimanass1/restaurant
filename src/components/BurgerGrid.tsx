@@ -13,6 +13,12 @@ const burgers = [
   { name: "BBQ Bacon Burger", price: "$10.50", image: burger2 },
   { name: "Mushroom Swiss Burger", price: "$9.75", image: burger3 },
   { name: "House Special Burger", price: "$12.00", image: burger4 },
+  { name: "Double Smash Burger", price: "$11.00", image: burger1 },
+  { name: "BBQ Bacon Burger", price: "$10.50", image: burger2 },
+  { name: "Mushroom Swiss Burger", price: "$9.75", image: burger3 },
+  { name: "House Special Burger", price: "$12.00", image: burger4 },
+  
+
 ];
 
 const BurgerGrid = () => {
@@ -53,6 +59,17 @@ const BurgerGrid = () => {
         </div>
 
       </div>
+      <div className="flex justify-center mt-14">
+  <button
+    className="border border-orange-500 text-orange-400
+               px-8 py-3 rounded-full font-semibold
+               hover:bg-orange-500 hover:text-black
+               transition"
+  >
+    View Full Menu
+  </button>
+</div>
+
     </section>
   );
 };

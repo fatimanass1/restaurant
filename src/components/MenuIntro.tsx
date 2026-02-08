@@ -1,9 +1,20 @@
+import { useNavigate } from "react-router-dom";
 import menuImg from "../assets/menu-dish.jpg";
+import useScrollReveal from "../hooks/useScrollReveal";
 
 const MenuIntro = () => {
+  const navigate = useNavigate();
+  const { ref, isVisible } = useScrollReveal();
+
   return (
     <section className="bg-black text-white py-24">
-      <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-2 items-center gap-16">
+      <div
+        ref={ref}
+        className={`max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-2 items-center gap-16
+          transition-all duration-700 ease-out
+          ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}
+        `}
+      >
         
         {/* LEFT – TEXT */}
         <div>
@@ -22,14 +33,19 @@ const MenuIntro = () => {
           </p>
 
           <div className="flex gap-4">
-            <button className="border border-orange-400 text-orange-400
-                               px-6 py-3 rounded-full hover:bg-orange-400
-                               hover:text-black transition">
+            <button
+              className="border border-orange-400 text-orange-400
+                         px-6 py-3 rounded-full hover:bg-orange-400
+                         hover:text-black transition"
+            >
               Book your table
             </button>
 
-            <button className="border border-white px-6 py-3 rounded-full
-                               hover:bg-white hover:text-black transition">
+            <button
+              onClick={() => navigate("/menu")}
+              className="border border-white px-6 py-3 rounded-full
+                         hover:bg-white hover:text-black transition"
+            >
               View Menu
             </button>
           </div>

@@ -15,8 +15,8 @@ const services = [
     image: burger,
   },
   {
-    title: "Sweet Desserts",
-    desc: "Delicious desserts to finish your meal with happiness.",
+    title: "Crispy Starters",
+    desc: "Golden fries, onion rings, and tasty bites to begin your meal perfectly",
     image: dessert,
   },
   {
@@ -49,7 +49,7 @@ const Services = () => {
               <img
                 src={item.image}
                 alt={item.title}
-                className="w-full h-44 object-cover rounded-xl mb-4"
+                className="w-full h-52 object-cover rounded-xl mb-4"
               />
 
               {/* Title */}
@@ -66,6 +66,18 @@ const Services = () => {
         </div>
 
       </div>
+      {/* Explore Menu Button */}
+<div className="flex justify-center mt-14">
+  <button
+    className="border border-orange-500 text-orange-400
+               px-8 py-3 rounded-full font-semibold
+               hover:bg-orange-500 hover:text-black
+               transition"
+  >
+    More
+  </button>
+</div>
+
     </section>
   );
 };

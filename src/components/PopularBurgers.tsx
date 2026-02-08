@@ -1,6 +1,7 @@
 import burger1 from "../assets/burger1.jpg";
 import burger2 from "../assets/burger2.jpg";
 import burger3 from "../assets/burger3.jpg";
+import useScrollReveal from "../hooks/useScrollReveal";
 
 const burgers = [
   {
@@ -21,10 +22,17 @@ const burgers = [
 ];
 
 const PopularBurgers = () => {
+  const { ref, isVisible } = useScrollReveal();
+
   return (
     <section className="bg-black py-20 text-white">
-      <div className="max-w-7xl mx-auto px-6">
-
+      <div
+        ref={ref}
+        className={`max-w-7xl mx-auto px-6
+          transition-all duration-700 ease-out
+          ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}
+        `}
+      >
         {/* Title */}
         <h2 className="text-3xl md:text-4xl font-bold text-center mb-14">
           Most Popular <span className="text-orange-400">Burgers</span>
@@ -78,7 +86,6 @@ const PopularBurgers = () => {
           <span className="w-3 h-3 bg-zinc-600 rounded-full"></span>
           <span className="w-3 h-3 bg-zinc-600 rounded-full"></span>
         </div>
-
       </div>
     </section>
   );
