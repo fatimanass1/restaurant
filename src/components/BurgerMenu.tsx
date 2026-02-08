@@ -3,6 +3,8 @@ import burger2 from "../assets/burgerr2.jpg";
 import burger3 from "../assets/burgerr3.jpg";
 import burger4 from "../assets/burgerr4.jpg";
 import useScrollReveal from "../hooks/useScrollReveal";
+import { useCartStore } from "../store/cartStore";
+import toast from "react-hot-toast";
 
 const burgers = [
   { name: "Classic Beef Burger", price: "$8.50", image: burger1 },
@@ -13,6 +15,19 @@ const burgers = [
 
 const BurgerMenu = () => {
   const { ref, isVisible } = useScrollReveal();
+  const addToCart = useCartStore((s) => s.addToCart);
+
+  const handleAdd = (burger: typeof burgers[0], index: number) => {
+    addToCart({
+      id: index + 100, // نخلي ID مختلف حتى ما يتعارض ويا سكشن ثاني
+      name: burger.name,
+      price: Number(burger.price.replace("$", "")),
+      image: burger.image,
+      qty: 1,
+    });
+
+    toast.success(`${burger.name} added to cart 🛒`);
+  };
 
   return (
     <section className="bg-black text-white py-24">
@@ -53,8 +68,7 @@ const BurgerMenu = () => {
             <div
               key={index}
               className="bg-zinc-900 rounded-2xl p-6 text-center
-                         hover:-translate-y-2 hover:shadow-orange-500/20
-                         transition"
+                         hover:-translate-y-2 hover:shadow-orange-500/20 transition"
             >
               <img
                 src={burger.image}
@@ -72,9 +86,12 @@ const BurgerMenu = () => {
                 {burger.price}
               </p>
 
-              <button className="bg-orange-500 hover:bg-orange-600
-                                 text-black px-5 py-2 rounded-full
-                                 text-sm font-semibold transition">
+              <button
+                onClick={() => handleAdd(burger, index)}
+                className="bg-orange-500 hover:bg-orange-600
+                           text-black px-5 py-2 rounded-full
+                           text-sm font-semibold transition"
+              >
                 Add to Cart
               </button>
             </div>
