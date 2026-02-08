@@ -1,10 +1,14 @@
 import { Trash2 } from "lucide-react";
 import { useCartStore } from "../store/cartStore";
+import { useState } from "react";
+import CheckoutModal from "../components/CheckoutModal";
 
 const Cart = () => {
   const { items, removeFromCart, increaseQty, decreaseQty } = useCartStore();
 
   const total = items.reduce((acc, item) => acc + item.price * item.qty, 0);
+
+  const [open, setOpen] = useState(false);
 
   return (
     <div className="bg-black text-white min-h-screen py-24">
@@ -95,13 +99,19 @@ const Cart = () => {
                 </span>
               </div>
 
-              <button className="w-full bg-orange-500 hover:bg-orange-600 text-black py-3 rounded-full font-semibold transition">
-                Checkout
-              </button>
+              <button
+  onClick={() => setOpen(true)}
+  className="w-full bg-orange-500 hover:bg-orange-600 text-black py-3 rounded-full font-semibold transition"
+>
+  Checkout
+</button>
+
             </div>
           </div>
         )}
       </div>
+      <CheckoutModal open={open} onClose={() => setOpen(false)} />
+
     </div>
   );
 };

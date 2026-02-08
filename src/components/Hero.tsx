@@ -7,19 +7,41 @@ const Hero = () => {
   const { ref, isVisible } = useScrollReveal();
 
   return (
-    <section className="h-screen bg-black flex items-center justify-center text-white relative">
-
-      {/* Image (layer تحت) */}
+    <section
+      className="
+        relative bg-black text-white
+        h-[85vh] sm:h-screen
+        flex items-center justify-center
+      "
+    >
+      {/* Image */}
       <img
         src={hero}
         alt="Restaurant Hero Banner"
-        className="absolute inset-0 w-full h-full object-cover"
+        className="
+          absolute inset-0 w-full h-full
+          object-cover
+          
+          /* 📱 موبايل: نغيّر نقطة القص */
+          object-[center_top]
+          
+          /* 💻 ديسكتوب: طبيعي */
+          sm:object-center
+        "
       />
 
-      {/* Buttons (layer فوق + Scroll Reveal) */}
+      {/* Buttons */}
       <div
         ref={ref}
-        className={`absolute z-10 left-24 bottom-56 flex gap-4
+        className={`
+          absolute z-10 flex gap-4
+          
+          /* 📱 بالنص */
+          left-1/2 bottom-20 -translate-x-1/2 flex-col sm:flex-row
+          
+          /* 💻 يسار */
+          md:left-24 md:bottom-56 md:translate-x-0
+          
           transition-all duration-700 ease-out
           ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}
         `}
@@ -40,7 +62,6 @@ const Hero = () => {
           Order Now
         </button>
       </div>
-
     </section>
   );
 };

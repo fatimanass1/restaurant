@@ -1,49 +1,54 @@
 # 🍔 Crust & Bite
 
-Crust & Bite is a modern **dark-themed burger restaurant website** built as a front-end practice project using **React, Vite, TypeScript, and Tailwind CSS**.
+**Crust & Bite** is a modern **dark-themed burger restaurant website** built as a front-end practice project using:
 
-## Live Demo
-[View on Netlify](https://burger-restaurant-web.netlify.app/)
+**React, Vite, TypeScript, and Tailwind CSS**
 
- **Project Status:**  
-This project is **not completed yet**.  
-Currently, it includes **only the Home Page** design and layout.
-
-
-
-##  What's Included So Far
-
-- Hero section with call-to-action buttons
-- Popular burgers showcase
-- Burger menu section with categories
-- "Why Choose Us" section
-- Dark-themed footer
-- Responsive design (desktop & mobile)
-- Clean and reusable UI components
+The project focuses on creating a **realistic restaurant UI**, reusable components, and smooth user experience similar to modern food-ordering websites.
 
 ---
+## Live Demo
+[View on Netlify](https://burger-restaurant-web.netlify.app/)
+---
+
+##  Project Status
+
+This project is still in progress and is being developed step-by-step for learning and portfolio purposes.
+
 
 ##  Work in Progress
 
-The following features are **planned but not implemented yet**:
+Planned upcoming features:
 
-- Full Menu page
-- Cart & ordering functionality
+- Order confirmation UI
 - Backend / API integration
-- Authentication
-- Dynamic data handling
+- Authentication system
+- Dynamic menu data
+- Admin dashboard (future idea)
 
-This project is intended for **learning and UI/UX practice purposes**.
+---
+
+## Project Goal
+
+This project is built to:
+
+- Practice **modern React architecture**
+- Improve **UI/UX design skills**
+- Demonstrate **state management with Zustand**
+- Serve as a **front-end portfolio project**
 
 ---
 
 ##  Tech Stack
 
-- React
-- Vite
-- TypeScript
-- Tailwind CSS
-- React Router
-- Lucide Icons
+- **React**
+- **Vite**
+- **TypeScript**
+- **Tailwind CSS**
+- **React Router**
+- **Zustand**
+- **Lucide Icons**
+- **React Hot Toast**
+
 
 
