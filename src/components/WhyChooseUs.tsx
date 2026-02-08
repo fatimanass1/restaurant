@@ -51,7 +51,7 @@ const WhyChooseUs = () => {
                 style={{ transitionDelay: `${index * 150}ms` }}
                 className={`bg-zinc-900 rounded-2xl p-8
                   transform transition-all duration-700
-                  hover:-translate-y-3 hover:shadow-orange-500/30 hover:shadow-xl
+                  hover:-translate-y-3  hover:shadow-xl 
                   ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-12"}
                 `}
               >

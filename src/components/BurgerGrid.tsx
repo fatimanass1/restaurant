@@ -2,7 +2,9 @@ import burger1 from "../assets/burgeer1.jpg";
 import burger2 from "../assets/burgeer2.jpg";
 import burger3 from "../assets/burgeer3.jpg";
 import burger4 from "../assets/burgeer4.jpg";
-
+import { useNavigate } from "react-router-dom";
+import { useCartStore } from "../store/cartStore";
+import toast from "react-hot-toast";
 
 const burgers = [
   { name: "Classic Beef Burger", price: "$8.50", image: burger1 },
@@ -17,11 +19,25 @@ const burgers = [
   { name: "BBQ Bacon Burger", price: "$10.50", image: burger2 },
   { name: "Mushroom Swiss Burger", price: "$9.75", image: burger3 },
   { name: "House Special Burger", price: "$12.00", image: burger4 },
-  
-
 ];
 
 const BurgerGrid = () => {
+  const navigate = useNavigate();
+  const addToCart = useCartStore((state) => state.addToCart);
+
+  const handleAdd = (burger: (typeof burgers)[0], id: number) => {
+    addToCart({
+      id,
+      name: burger.name,
+      price: Number(burger.price.replace("$", "")),
+      image: burger.image,
+      qty: 1,
+    });
+
+    // 🔔 Toast message
+    toast.success(`${burger.name} added to cart `);
+  };
+
   return (
     <section className="py-20 bg-black text-white">
       <div className="max-w-7xl mx-auto px-6">
@@ -49,27 +65,31 @@ const BurgerGrid = () => {
 
               <p className="text-xl font-bold mb-4">{burger.price}</p>
 
-              <button className="bg-orange-500 hover:bg-orange-600
-                                 text-black px-5 py-2 rounded-full
-                                 text-sm font-semibold transition">
+              <button
+                onClick={() => handleAdd(burger, index)}
+                className="bg-orange-500 hover:bg-orange-600
+                           text-black px-5 py-2 rounded-full
+                           text-sm font-semibold transition"
+              >
                 Add to Cart
               </button>
             </div>
           ))}
         </div>
-
       </div>
-      <div className="flex justify-center mt-14">
-  <button
-    className="border border-orange-500 text-orange-400
-               px-8 py-3 rounded-full font-semibold
-               hover:bg-orange-500 hover:text-black
-               transition"
-  >
-    View Full Menu
-  </button>
-</div>
 
+      {/* View Full Menu */}
+      <div className="flex justify-center mt-14">
+        <button
+          onClick={() => navigate("/menu")}
+          className="border border-orange-500 text-orange-400
+                     px-8 py-3 rounded-full font-semibold
+                     hover:bg-orange-500 hover:text-black
+                     transition"
+        >
+          View Full Menu
+        </button>
+      </div>
     </section>
   );
 };

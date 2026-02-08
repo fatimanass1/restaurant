@@ -1,6 +1,9 @@
 import { Facebook, Instagram, Twitter, Youtube } from "lucide-react";
+import { NavLink, useNavigate } from "react-router-dom";
 
 const Footer = () => {
+  const navigate = useNavigate();
+
   return (
     <footer className="bg-zinc-950 text-gray-300 pt-20">
       <div className="max-w-7xl mx-auto px-6">
@@ -19,8 +22,11 @@ const Footer = () => {
               Taste the crunch, love the bite.
             </p>
 
-            <button className="bg-orange-500 hover:bg-orange-600 text-black
-                               px-5 py-2 rounded-full text-sm font-semibold transition">
+            <button
+              onClick={() => navigate("/cart")}
+              className="bg-orange-500 hover:bg-orange-600 text-black
+                         px-5 py-2 rounded-full text-sm font-semibold transition"
+            >
               Order Now
             </button>
           </div>
@@ -32,10 +38,29 @@ const Footer = () => {
             </h4>
 
             <ul className="space-y-3 text-sm">
-              <li className="hover:text-orange-400 transition cursor-pointer">Home</li>
-              <li className="hover:text-orange-400 transition cursor-pointer">Menu</li>
-              <li className="hover:text-orange-400 transition cursor-pointer">About Us</li>
-              <li className="hover:text-orange-400 transition cursor-pointer">Contact</li>
+              <li>
+                <NavLink to="/" className="hover:text-orange-400 transition">
+                  Home
+                </NavLink>
+              </li>
+
+              <li>
+                <NavLink to="/menu" className="hover:text-orange-400 transition">
+                  Menu
+                </NavLink>
+              </li>
+
+              <li>
+                <NavLink to="/about" className="hover:text-orange-400 transition">
+                  About Us
+                </NavLink>
+              </li>
+
+              <li>
+                <NavLink to="/cart" className="hover:text-orange-400 transition">
+                  Cart
+                </NavLink>
+              </li>
             </ul>
           </div>
 
@@ -72,10 +97,21 @@ const Footer = () => {
           <p>© 2026 Crust & Bite. All rights reserved.</p>
 
           <div className="flex gap-4">
-            <Facebook className="hover:text-orange-400 cursor-pointer" size={18} />
-            <Instagram className="hover:text-orange-400 cursor-pointer" size={18} />
-            <Twitter className="hover:text-orange-400 cursor-pointer" size={18} />
-            <Youtube className="hover:text-orange-400 cursor-pointer" size={18} />
+            <a href="https://facebook.com" target="_blank" rel="noopener noreferrer">
+              <Facebook className="hover:text-orange-400 cursor-pointer" size={18} />
+            </a>
+
+            <a href="https://instagram.com" target="_blank" rel="noopener noreferrer">
+              <Instagram className="hover:text-orange-400 cursor-pointer" size={18} />
+            </a>
+
+            <a href="https://twitter.com" target="_blank" rel="noopener noreferrer">
+              <Twitter className="hover:text-orange-400 cursor-pointer" size={18} />
+            </a>
+
+            <a href="https://youtube.com" target="_blank" rel="noopener noreferrer">
+              <Youtube className="hover:text-orange-400 cursor-pointer" size={18} />
+            </a>
           </div>
 
         </div>

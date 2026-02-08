@@ -33,7 +33,7 @@ const Hero = () => {
         </button>
 
         <button
-          onClick={() => navigate("/menu")}
+          onClick={() => navigate("/cart")}
           className="border border-white hover:bg-white hover:text-black
                      hover:scale-105 px-6 py-3 rounded-full font-semibold transition-all"
         >
